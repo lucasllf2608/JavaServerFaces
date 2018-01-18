@@ -5,28 +5,36 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
+
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-	<title>Insert title here</title>
+	<title>JSF 2.0 - Hello World</title>
 </h:head>
 <h:body>
-
-	<h:form>
-		<h:panelGrid columns="1" id="jogos">
-		
-			<div>
-				<h:outputLabel>Nome Jogo</h:outputLabel>
-				<h:inputText />
-			</div>
-			<br></br>
-			<div>
-				<p:commandButton value="Enviar" action=""></p:commandButton>
-			</div>
-		</h:panelGrid>
-	</h:form>
-
-
-
-
+	<div>
+		<h:form>
+			<p:outputLabel>Nome do Jogo:</p:outputLabel>
+			<p:inputText value="#{jogoBean.jogo.nome}"></p:inputText>
+			<p:commandButton action="#{jogoBean.salva(jogoBean.jogo)}" value="Salvar" update="table"></p:commandButton>
+		</h:form>
+	</div>
+	<hr />
+	<div>
+		<p:dataTable value="#{jogoBean.listarJogos}" var="j" border="1" id="table"
+			styleClass="order-table" headerClass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row">	
+			<p:column style="width=20%">
+				<f:facet name="header">Nome Jogo</f:facet>
+				#{j.nome}
+			</p:column>
+			<p:column style="width=20%">
+				<f:facet name="header">Editar</f:facet>
+				
+			</p:column>
+			<p:column style="width=20%">
+				<f:facet name="header">Excluir</f:facet>
+				<p:commandButton value="Remove" icon="fa-close" type="button"/>
+			</p:column>
+		</p:dataTable>
+	</div>
 </h:body>
 </html>
