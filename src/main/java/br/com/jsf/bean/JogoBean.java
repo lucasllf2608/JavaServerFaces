@@ -48,9 +48,15 @@ public class JogoBean implements Serializable {
 	
 	public void salva(Jogo jogo){
 	
-		System.out.println("chegou:"+ jogo.getNome());
+		System.out.println(jogo.toString());
 		jd.salvarJogo(jogo);
 		
+	}
+	
+	
+	public void excluir(int id){
+		System.out.println("chegou:"+ id);
+		jd.excluirJogo(id);
 	}
 		
 	

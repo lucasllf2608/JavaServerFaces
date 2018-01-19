@@ -12,28 +12,43 @@
 <h:body>
 	<div>
 		<h:form>
-			<p:outputLabel>Nome do Jogo:</p:outputLabel>
-			<p:inputText value="#{jogoBean.jogo.nome}"></p:inputText>
-			<p:commandButton action="#{jogoBean.salva(jogoBean.jogo)}" value="Salvar" update="table"></p:commandButton>
+			<h:panelGrid>
+				<p:outputLabel>Nome do Jogo:</p:outputLabel>
+
+				<p:inputText value="#{jogoBean.jogo.nome}"></p:inputText>
+
+				<p:outputLabel>Descrição do Jogo:</p:outputLabel>
+
+				<p:inputTextarea value="#{jogoBean.jogo.descricao}"></p:inputTextarea>
+
+
+				<p:commandButton action="#{jogoBean.salva(jogoBean.jogo)}"
+					value="Salvar" update="table"></p:commandButton>
+			</h:panelGrid>
 		</h:form>
 	</div>
 	<hr />
 	<div>
-		<p:dataTable value="#{jogoBean.listarJogos}" var="j" border="1" id="table"
-			styleClass="order-table" headerClass="order-table-header"
-			rowClasses="order-table-odd-row,order-table-even-row">	
-			<p:column style="width=20%">
+		<p:dataTable value="#{jogoBean.listarJogos}" var="j" border="1"
+			id="table" styleClass="order-table" headerClass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row">
+			<p:column width="20%">
 				<f:facet name="header">Nome Jogo</f:facet>
 				#{j.nome}
 			</p:column>
-			<p:column style="width=20%">
-				<f:facet name="header">Editar</f:facet>
-				
+			<p:column width="20%">
+				<f:facet name="header">Descricao Jogo</f:facet>
+				#{j.descricao}
 			</p:column>
-			<p:column style="width=20%">
+			<p:column width="20%">
 				<f:facet name="header">Excluir</f:facet>
-				<p:commandButton value="Remove" icon="fa-close" type="button"/>
+				<p:commandButton action="#{jogoBean.excluir(j.id)}" update="table"
+					icon="ui-icon-trash" />
 			</p:column>
+
+
+
+
 		</p:dataTable>
 	</div>
 </h:body>

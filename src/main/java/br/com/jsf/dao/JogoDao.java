@@ -34,7 +34,9 @@ public class JogoDao {
 			while (rs.next()) {
 
 				Jogo jogo = new Jogo();
+				jogo.setId(rs.getInt("id"));
 				jogo.setNome(rs.getString("nome"));
+				jogo.setDescricao(rs.getString("descricao"));
 				listaJogos.add(jogo);
 
 			}
@@ -51,17 +53,37 @@ public class JogoDao {
 		
 		System.out.println("chegou no dao o jogo: "+jogo.getNome());
 
-		String sql = "insert into jogo (nome) values (?)";
+		String sql = "insert into jogo (nome, descricao) values (?,?)";
 		try {
 			java.sql.PreparedStatement stmt = conexao().prepareStatement(sql);
 		stmt.setString(1, jogo.getNome());
+		stmt.setString(2, jogo.getDescricao());
 		stmt.execute();
 		stmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+	}
+	
+	
+	public void excluirJogo(int id){
+		
+		String sql = "DELETE FROM jogo WHERE id = ?";
+		
+		System.out.println(id);
+		
+		try {
+			
+			java.sql.PreparedStatement stmt = conexao().prepareStatement(sql);
+			stmt.setInt(1, id);
+			stmt.execute();
+			stmt.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }
