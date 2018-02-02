@@ -10,23 +10,17 @@
 	<title>JSF 2.0 - Hello World</title>
 </h:head>
 <h:body>
-	<div>
-		<h:form>
-			<h:panelGrid>
-				<p:outputLabel>Nome do Jogo:</p:outputLabel>
+<h:form>  
+    <p:growl id="messages"/>
+ 
+    <p:menubar>
+            <p:submenu label="Cadastrar" icon="ui-icon-plus">
+                <p:menuitem value="Novo Jogo" url="/cadastro.jsf" />
+            </p:submenu>
+    </p:menubar>
+</h:form>
+	
 
-				<p:inputText value="#{jogoBean.jogo.nome}"></p:inputText>
-
-				<p:outputLabel>Descrição do Jogo:</p:outputLabel>
-
-				<p:inputTextarea value="#{jogoBean.jogo.descricao}"></p:inputTextarea>
-
-
-				<p:commandButton action="#{jogoBean.salva(jogoBean.jogo)}"
-					value="Salvar" update="table"></p:commandButton>
-			</h:panelGrid>
-		</h:form>
-	</div>
 	<hr />
 	<div>
 		<p:dataTable value="#{jogoBean.listarJogos}" var="j" border="1"
@@ -37,17 +31,21 @@
 				#{j.nome}
 			</p:column>
 			<p:column width="20%">
-				<f:facet name="header">Descricao Jogo</f:facet>
+				<f:facet name="header">Descrição Jogo</f:facet>
 				#{j.descricao}
+				
 			</p:column>
+			
+			<p:column width="20%">
+				<f:facet name="header">Editar</f:facet>
+				<p:commandButton action="#{jogoBean.editar(j.id)}" update="table" icon="ui-icon-pencil" />
+			</p:column>
+			
+
 			<p:column width="20%">
 				<f:facet name="header">Excluir</f:facet>
-				<p:commandButton action="#{jogoBean.excluir(j.id)}" update="table"
-					icon="ui-icon-trash" />
+				<p:commandButton action="#{jogoBean.excluir(j.id)}" update="table" icon="ui-icon-trash" />
 			</p:column>
-
-
-
 
 		</p:dataTable>
 	</div>

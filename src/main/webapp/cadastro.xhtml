@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>JSF 2.0 - Hello World</title>
+</h:head>
+<h:body>
+	<div>
+		<h:form>
+				<h:panelGrid id="grid" columns="2" cellpadding="5">
+					<p:outputLabel>Nome do Jogo:</p:outputLabel>
+					<p:inputText value="#{jogoBean.jogo.nome}" required="true"></p:inputText>
+					<p:outputLabel>Descrição do Jogo:</p:outputLabel>
+					<p:inputTextarea value="#{jogoBean.jogo.descricao}" required="true"></p:inputTextarea>
+					<p:commandButton action="#{jogoBean.salva(jogoBean.jogo)}" value="Salvar"  update="grid" />
+					<p:commandButton value="Limpar" type="reset" />
+					<p:link href="/form.jsf">Voltar</p:link>
+				</h:panelGrid>
+		</h:form>
+	</div>
+</h:body>
+</html>

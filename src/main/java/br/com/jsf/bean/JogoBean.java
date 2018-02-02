@@ -55,10 +55,15 @@ public class JogoBean implements Serializable {
 	
 	
 	public void excluir(int id){
-		System.out.println("chegou:"+ id);
+		System.out.println("chegou, excluir:"+ id);
 		jd.excluirJogo(id);
 	}
 		
+	
+	public void editar(int id){
+		System.out.println("chegou, para editar:"+ id);
+	}
+	
 	
 
 }

@@ -46,5 +46,21 @@ public class ConexaoBd {
 		return status;
 	}
 	
+	
+	public static boolean fecharConexao(){
+		
+		try {
+			
+			ConexaoBd.getConexao().close();
+			return true;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			return false;
+		}
+		
+	}
+	
 
 }

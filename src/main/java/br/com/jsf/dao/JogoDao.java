@@ -18,7 +18,9 @@ public class JogoDao {
 
 		Connection connetion;
 		return connetion = ConexaoBd.getConexao();
+				
 	}
+		
 
 	public ArrayList<Jogo> listarJogos() {
 
@@ -40,10 +42,19 @@ public class JogoDao {
 				listaJogos.add(jogo);
 
 			}
+			
+			
+			rs.close();
+			stmt.close();
+			conexao().close();
+			
+			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		
 
 		return listaJogos;
 
@@ -60,10 +71,17 @@ public class JogoDao {
 		stmt.setString(2, jogo.getDescricao());
 		stmt.execute();
 		stmt.close();
+		
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			
 		}
+		
+		
+		ConexaoBd.fecharConexao();
 	}
 	
 	
@@ -71,7 +89,7 @@ public class JogoDao {
 		
 		String sql = "DELETE FROM jogo WHERE id = ?";
 		
-		System.out.println(id);
+		System.out.println("excluindo:"+ id);
 		
 		try {
 			
@@ -79,6 +97,7 @@ public class JogoDao {
 			stmt.setInt(1, id);
 			stmt.execute();
 			stmt.close();
+			conexao().close();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
