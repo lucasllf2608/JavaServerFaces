@@ -5,7 +5,7 @@ package br.com.jsf.model;
 public class Jogo {
 
 
-	private int id;
+	private Integer id;
 	private String nome;
 	private String descricao;
 
@@ -25,11 +25,11 @@ public class Jogo {
 		this.nome = nome;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

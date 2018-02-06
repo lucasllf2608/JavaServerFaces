@@ -1,12 +1,17 @@
 package br.com.jsf.bean;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.RequestDispatcher;
+
 import com.sun.faces.spi.SerializationProvider;
 
 import br.com.jsf.dao.JogoDao;
@@ -14,7 +19,7 @@ import br.com.jsf.model.Jogo;
 import br.com.jsf.util.ConexaoBd;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class JogoBean implements Serializable {
 
 	private Jogo jogo = new Jogo();
@@ -44,15 +49,13 @@ public class JogoBean implements Serializable {
 		return listJogos;
 	}
 	
-	
-	
-	public void salva(Jogo jogo){
-	
+
+	public String salva(Jogo jogo){	
 		System.out.println(jogo.toString());
 		jd.salvarJogo(jogo);
-		
+		return "form.jsf";		
 	}
-	
+
 	
 	public void excluir(int id){
 		System.out.println("chegou, excluir:"+ id);
@@ -60,8 +63,11 @@ public class JogoBean implements Serializable {
 	}
 		
 	
-	public void editar(int id){
-		System.out.println("chegou, para editar:"+ id);
+	public String editar(Jogo jogo){
+		System.out.println("chegou,  "+jogo.toString());
+		this.setJogo(jogo);
+		return "cadastro.jsf";
+		
 	}
 	
 	

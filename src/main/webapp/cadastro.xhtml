@@ -11,17 +11,24 @@
 </h:head>
 <h:body>
 	<div>
+	
+	
 		<h:form>
+		
+					<p:inputText type="hidden" value="#{jogoBean.jogo.id}"></p:inputText>			
 				<h:panelGrid id="grid" columns="2" cellpadding="5">
 					<p:outputLabel>Nome do Jogo:</p:outputLabel>
 					<p:inputText value="#{jogoBean.jogo.nome}" required="true"></p:inputText>
 					<p:outputLabel>Descrição do Jogo:</p:outputLabel>
 					<p:inputTextarea value="#{jogoBean.jogo.descricao}" required="true"></p:inputTextarea>
-					<p:commandButton action="#{jogoBean.salva(jogoBean.jogo)}" value="Salvar"  update="grid" />
-					<p:commandButton value="Limpar" type="reset" />
-					<p:link href="/form.jsf">Voltar</p:link>
+					<p:commandButton action="#{jogoBean.salva(jogoBean.jogo)}" value="Salvar"/>
+					<p:commandButton action="form" value="Voltar" immediate="true"></p:commandButton>
 				</h:panelGrid>
+
+								
 		</h:form>
 	</div>
 </h:body>
 </html>
+
+
