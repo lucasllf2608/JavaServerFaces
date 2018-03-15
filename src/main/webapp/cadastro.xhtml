@@ -4,31 +4,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pi="http://primefaces.prime.com.tr/ui">
 
 <h:head>
 	<title>JSF 2.0 - Hello World</title>
 </h:head>
+
+
+<ui:include src="menu.xhtml"></ui:include>
+
 <h:body>
-	<div>
-	
+			
 	
 		<h:form>
-		
-					<p:inputText type="hidden" value="#{jogoBean.jogo.id}"></p:inputText>			
+			<p:inputText type="hidden" value="#{jogoBean.jogo.id}"></p:inputText>			
 				<h:panelGrid id="grid" columns="2" cellpadding="5">
 					<p:outputLabel>Nome do Jogo:</p:outputLabel>
 					<p:inputText value="#{jogoBean.jogo.nome}" required="true"></p:inputText>
 					<p:outputLabel>Descrição do Jogo:</p:outputLabel>
 					<p:inputTextarea value="#{jogoBean.jogo.descricao}" required="true"></p:inputTextarea>
 					<p:commandButton action="#{jogoBean.salva(jogoBean.jogo)}" value="Salvar"/>
-					<p:commandButton action="form" value="Voltar" process="@this"></p:commandButton>
-				</h:panelGrid>
-
-								
+					<p:commandButton action="jogo" value="Voltar" process="@this"></p:commandButton>
+				</h:panelGrid>								
 		</h:form>
-					
-	</div>
+
 </h:body>
 </html>
 
