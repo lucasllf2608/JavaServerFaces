@@ -8,6 +8,16 @@ public class Jogo {
 	private Integer id;
 	private String nome;
 	private String descricao;
+	private String tipoJogo;
+	
+
+	public String getTipoJogo() {
+		return tipoJogo;
+	}
+
+	public void setTipoJogo(String tipoJogo) {
+		this.tipoJogo = tipoJogo;
+	}
 
 	public String getDescricao() {
 		return descricao;

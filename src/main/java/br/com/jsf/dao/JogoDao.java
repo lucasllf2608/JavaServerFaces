@@ -37,6 +37,7 @@ public class JogoDao {
 				Jogo jogo = new Jogo();
 				jogo.setId(rs.getInt("id"));
 				jogo.setNome(rs.getString("nome"));
+				jogo.setTipoJogo(rs.getString("tp_jogo"));
 				jogo.setDescricao(rs.getString("descricao"));
 				listaJogos.add(jogo);
 
@@ -61,11 +62,12 @@ public class JogoDao {
 
 			System.out.println("chegou no dao o jogo: " + jogo.getNome());
 
-			String sql = "insert into jogo (nome, descricao) values (?,?)";
+			String sql = "insert into jogo (nome, descricao, tp_jogo) values (?,?,?)";
 			try {
 				java.sql.PreparedStatement stmt = conexao().prepareStatement(sql);
 				stmt.setString(1, jogo.getNome());
 				stmt.setString(2, jogo.getDescricao());
+				stmt.setString(3, jogo.getTipoJogo());
 				stmt.execute();
 				stmt.close();
 
@@ -80,12 +82,13 @@ public class JogoDao {
 
 			System.out.println("chegou no dao o jogo: " + jogo.getNome());
 
-			String sql = "UPDATE jogo SET nome = ?, descricao = ? WHERE id = ? ";
+			String sql = "UPDATE jogo SET nome = ?, descricao = ?, tp_jogo = ? WHERE id = ? ";
 			try {
 				java.sql.PreparedStatement stmt = conexao().prepareStatement(sql);
 				stmt.setString(1, jogo.getNome());
 				stmt.setString(2, jogo.getDescricao());
-				stmt.setInt(3, jogo.getId());
+				stmt.setString(3, jogo.getTipoJogo());
+				stmt.setInt(4, jogo.getId());
 				stmt.execute();
 				stmt.close();
 

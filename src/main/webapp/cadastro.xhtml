@@ -23,6 +23,17 @@
 				<h:panelGrid id="grid" columns="2" cellpadding="5">
 					<p:outputLabel>Nome do Jogo:</p:outputLabel>
 					<p:inputText value="#{jogoBean.jogo.nome}" required="true"></p:inputText>
+					<p:outputLabel for="console" value="Tipo do jogo:" />
+        				<p:selectOneMenu id="console" value="#{jogoBean.jogo.tipoJogo}" style="width:125px">
+            				<f:selectItem itemLabel="Selecionar" itemValue="" />
+            				<f:selectItem itemLabel="Esporte" itemValue="Esporte" />
+            				<f:selectItem itemLabel="Corrida" itemValue="Corrida" />
+            				<f:selectItem itemLabel="MOBA" itemValue="MOBA" />
+            				<f:selectItem itemLabel="Puzzle" itemValue="Puzzle" />
+            				<f:selectItem itemLabel="Tiro" itemValue="Tiro" />
+            				<f:selectItem itemLabel="Aventura" itemValue="Aventura" />
+            				<f:selectItem itemLabel="FPS" itemValue="FPS" />
+        				</p:selectOneMenu>
 					<p:outputLabel>Descrição do Jogo:</p:outputLabel>
 					<p:inputTextarea value="#{jogoBean.jogo.descricao}" required="true"></p:inputTextarea>
 					<p:commandButton action="#{jogoBean.salva(jogoBean.jogo)}" value="Salvar"/>

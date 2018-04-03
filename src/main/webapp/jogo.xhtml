@@ -19,8 +19,8 @@
 	<ui:include src="menu.xhtml"></ui:include>
 	<div>
 	
-		<p:link outcome="cadastro.jsf" value="Novo"></p:link>
-		
+		<p:link outcome="cadastro.jsf" value="Novo" icon="fa fa-plus"></p:link>
+		<i class="glyphicon glyphicon-cloud"></i>
 	
 		<p:dataTable value="#{jogoBean.listarJogos}" var="j" border="1"
 			id="table" styleClass="order-table" headerClass="order-table-header"
@@ -29,9 +29,13 @@
 				<f:facet name="header">Nome Jogo</f:facet>
 				#{j.nome}
 			</p:column>
+			<p:column>
+				<f:facet name="header">Tipo do Jogo</f:facet>
+				#{j.tipoJogo}
+			</p:column>
 			<p:column width="20%">
 				<f:facet name="header">Descrição Jogo</f:facet>
-				#{j.descricao}
+					#{j.descricao}
 				
 			</p:column>
 

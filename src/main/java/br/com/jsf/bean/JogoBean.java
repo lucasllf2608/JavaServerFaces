@@ -55,7 +55,7 @@ public class JogoBean implements Serializable {
 	public String salva(Jogo jogo){	
 		System.out.println(jogo.toString());
 		jd.salvarJogo(jogo);
-		return "form.jsf";		
+		return "jogo.jsf";		
 	}
 
 	
