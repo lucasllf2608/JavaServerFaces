@@ -60,7 +60,7 @@ public class JogoDao {
 		if (jogo.getId() == null) {
 			System.out.println("novo");
 
-			System.out.println("chegou no dao o jogo: " + jogo.getNome());
+			System.out.println("chegou no dao o jogo: " + jogo.getTipoJogo());
 
 			String sql = "insert into jogo (nome, descricao, tp_jogo) values (?,?,?)";
 			try {

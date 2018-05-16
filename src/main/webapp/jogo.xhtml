@@ -21,10 +21,13 @@
 	
 		<p:link outcome="cadastro.jsf" value="Novo" icon="fa fa-plus"></p:link>
 		<i class="glyphicon glyphicon-cloud"></i>
+		
+		
+		
 	
 		<p:dataTable value="#{jogoBean.listarJogos}" var="j" border="1"
 			id="table" styleClass="order-table" headerClass="order-table-header"
-			rowClasses="order-table-odd-row,order-table-even-row">
+			rowClasses="order-table-odd-row,order-table-even-row" emptyMessage="Nenhum Registro Encontrado">
 			<p:column width="20%">
 				<f:facet name="header">Nome Jogo</f:facet>
 				#{j.nome}
@@ -50,7 +53,7 @@
 				<f:facet name="header">Excluir</f:facet>
 				<p:commandButton action="#{jogoBean.excluir(j.id)}" update="table"
 					icon="ui-icon-trash">
-					<p:confirm header="Confirmation" message="Are you sure?"
+					<p:confirm header="Confirmation" message="Deseja excluir?"
 						icon="ui-icon-alert" />
 				</p:commandButton>
 			</p:column>
@@ -59,9 +62,9 @@
 
 
 		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-			<p:commandButton value="Yes" type="button"
+			<p:commandButton value="Sim" type="button"
 				styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-			<p:commandButton value="No" type="button"
+			<p:commandButton value="Não" type="button"
 				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
 		</p:confirmDialog>
 
