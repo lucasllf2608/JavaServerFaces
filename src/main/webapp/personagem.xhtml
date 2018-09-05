@@ -16,5 +16,26 @@
 
 <h:body bgcolor="white">
 	<h3>Personagem</h3>
+	
+	<p:dataTable value="#{personagemBean.listaPersonagem}" var="personagem" emptyMessage="Nenhum item encontrado">
+		<p:column headerText="id"  width="20%">
+			<f:facet name="header"></f:facet>
+			<h:outputLabel value="#{personagem.id}"/>
+		</p:column>
+		<p:column headerText="Nome" width="20%">
+			<f:facet name="header"></f:facet>	
+			<h:outputLabel value="#{personagem.nome}"/>
+		</p:column>
+		<p:column headerText="Habilidades" width="20%">
+			<f:facet name="header"></f:facet>
+			<h:outputLabel value="#{personagem.habilidade}"/>
+		</p:column>
+		<p:column headerText="Historia" width="20%">
+			<f:facet name="header"></f:facet>
+			<h:outputLabel value="#{personagem.historia}"/>
+		</p:column>
+	
+	</p:dataTable>
+	
 </h:body>
 </html>

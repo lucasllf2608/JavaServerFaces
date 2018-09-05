@@ -25,7 +25,7 @@ import br.com.jsf.util.ConexaoBd;
 public class JogoBean implements Serializable {
 
 	private Jogo jogo = new Jogo();
-	public static JogoDao jd = new JogoDao();
+	private JogoDao jogoDao = new JogoDao();
 	private ArrayList<Jogo> listJogos;
 	
 
@@ -47,21 +47,21 @@ public class JogoBean implements Serializable {
 
 	public List<Jogo> getListarJogos() throws SQLException {
 
-		this.listJogos = jd.listarJogos();
+		this.listJogos = jogoDao.listarJogos();
 		return listJogos;
 	}
 	
 
 	public String salva(Jogo jogo){	
 		System.out.println(jogo.toString());
-		jd.salvarJogo(jogo);
+		jogoDao.salvarJogo(jogo);
 		return "jogo.jsf";		
 	}
 
 	
 	public void excluir(int id){
 		System.out.println("chegou, excluir:"+ id);
-		jd.excluirJogo(id);
+		jogoDao.excluirJogo(id);
 	}
 		
 	
