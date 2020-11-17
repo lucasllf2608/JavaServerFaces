@@ -1,3 +1,3 @@
 # JavaServerFaces
 
-CRUD utilizando JSF e PRIMEFACES com conexão JDBC.
+CRUD using JSF and PRIMEFACES with JDBC connection.
