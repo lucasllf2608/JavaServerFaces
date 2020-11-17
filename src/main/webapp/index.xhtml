@@ -7,12 +7,25 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>JSF 2.0 - Hello World</title>
+	<title>JSF 2.0 - Login</title>
+	<h:outputStylesheet library="css" name="login.css"/>
 </h:head>
 <h:body>
-	<h3>JSF 2.0 Hello World</h3>
-	<h:form>	
-		<p:commandButton value="Click Here"></p:commandButton>
-	</h:form>
+	<div id="form-login">
+		<h3>Login</h3>
+		<h:form>	
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Login"></h:outputLabel>
+				<h:inputText id="login" value="#{loginBean.usuario.login}"></h:inputText>
+				
+				<h:outputLabel value="Senha"></h:outputLabel>
+				<h:inputText id="senha" value="#{loginBean.usuario.senha}"></h:inputText>
+				
+				<h:commandButton value="Logar" action="#{loginBean.acessar}"></h:commandButton>
+				
+			</h:panelGrid> 
+			
+		</h:form>
+	</div>
 </h:body>
 </html>

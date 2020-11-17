@@ -9,6 +9,12 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean
 public class ConexaoBd {
 	
+	public ConexaoBd() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	private static String status = "Não conectou...";
 	
 	public static java.sql.Connection getConexao(){

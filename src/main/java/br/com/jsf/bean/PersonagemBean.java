@@ -11,7 +11,7 @@ import javax.faces.bean.RequestScoped;
 import br.com.jsf.dao.PersonagemDao;
 import br.com.jsf.model.Personagem;
 
-@ManagedBean
+@ManagedBean(name="personagembean")
 @RequestScoped
 public class PersonagemBean implements Serializable {
 
@@ -25,6 +25,7 @@ public class PersonagemBean implements Serializable {
 
 	public void setPersonagem(Personagem personagem) {
 		this.personagem = personagem;
+		
 	}
 	
 	
@@ -47,9 +48,13 @@ public class PersonagemBean implements Serializable {
 	}
 	
 	
-	public String salvar(PersonagemBean personagemBean ) {
-		System.out.println(personagemBean.toString());
-	return "personagem.jsf";	
+	public void salva(PersonagemBean personagem) {
+		
+		
+	}
+	
+	public void teste() {
+		
 	}
 
 }

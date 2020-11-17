@@ -58,10 +58,6 @@ public class JogoDao {
 	public void salvarJogo(Jogo jogo) {
 
 		if (jogo.getId() == null) {
-			System.out.println("novo");
-
-			System.out.println("chegou no dao o jogo: " + jogo.getTipoJogo());
-
 			String sql = "insert into jogo (nome, descricao, tp_jogo) values (?,?,?)";
 			try {
 				java.sql.PreparedStatement stmt = conexao().prepareStatement(sql);

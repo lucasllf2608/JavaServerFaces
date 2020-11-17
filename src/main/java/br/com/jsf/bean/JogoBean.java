@@ -20,7 +20,7 @@ import br.com.jsf.dao.JogoDao;
 import br.com.jsf.model.Jogo;
 import br.com.jsf.util.ConexaoBd;
 
-@ManagedBean
+@ManagedBean(name="jogoBean")
 @RequestScoped
 public class JogoBean implements Serializable {
 

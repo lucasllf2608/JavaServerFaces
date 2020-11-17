@@ -22,7 +22,7 @@ public class Personagem {
 	public String getHabilidade() {
 		return habilidade;
 	}
-	public void setHabilidade(String habilidades) {
+	public void setHabilidade(String habilidade) {
 		this.habilidade = habilidade;
 	}
 	public String getHistoria() {

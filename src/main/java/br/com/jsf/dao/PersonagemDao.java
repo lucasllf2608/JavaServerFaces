@@ -1,6 +1,7 @@
 package br.com.jsf.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -46,6 +47,29 @@ public class PersonagemDao {
 		}
 		
 		return personagens;
+	}
+	
+	public void salvarPersonagem(Personagem personagem) {
+		if(personagem.getId() == null) {
+				String sql = "insert into tb_personagem (nome, habilidades, historia) values (?,?,?)";
+				try {
+					
+					PreparedStatement stmt = conexao().prepareStatement(sql);
+					stmt.setString(1, personagem.getNome());
+					stmt.setString(2, personagem.getHabilidade());
+					stmt.setString(3, personagem.getHistoria());
+					stmt.execute();
+					stmt.close();
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+				
+				
+		}else {
+			
+		}
 	}
 	
 

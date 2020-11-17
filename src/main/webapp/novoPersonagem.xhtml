@@ -12,20 +12,18 @@
 </h:head>
 <ui:include src="menu.xhtml"></ui:include>
 
+<ui:param name="bean" value="#{personagemBean}"></ui:param>
+
 <h:body bgcolor="white">
 	
 	<h:form>
 		<h:panelGrid columns="2" cellpadding="5">
-			<p:outputLabel value="Nome:"></p:outputLabel>
+			<h:outputLabel>Nome personagem:</h:outputLabel>
 			<p:inputText value="#{personagemBean.personagem.nome}"></p:inputText>
-			<p:outputLabel value="Habilidades"></p:outputLabel>
-			<p:inputTextarea value="#{personagemBean.personagem.habilidades}"></p:inputTextarea>
-			<p:outputLabel value="Historia"></p:outputLabel>
-			<p:inputTextarea value="#{personagemBean.personagem.historia}"></p:inputTextarea>
+			<p:commandButton action="#{bean.salva(bean.personagem)}" value="Salvar"></p:commandButton>
 			
 			
-			<p:commandButton value="#{personagemBean.salvar(personagemBean.personagem)}"></p:commandButton>
-			
+			<p:commandButton action="#{bean.salvar}" value="Salvar"></p:commandButton>
 		</h:panelGrid>
 	</h:form>	
 </h:body>
