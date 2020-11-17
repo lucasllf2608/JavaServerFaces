@@ -28,7 +28,7 @@ public class JogoBean implements Serializable {
 	private JogoDao jogoDao = new JogoDao();
 	private ArrayList<Jogo> listJogos;
 	
-
+// opa
 	public ArrayList<Jogo> getListJogos() {
 		return listJogos;
 	}
